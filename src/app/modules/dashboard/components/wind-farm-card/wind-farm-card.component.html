@@ -1,13 +1,33 @@
-<mat-card class="mat-elevation-z4">
+<mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>
-      titulo
-    </mat-card-title>
+    <mat-card-title>{{ windFarm.name }}</mat-card-title>
+    <mat-card-subtitle>{{ 'Identification number: '}} {{ windFarm.id }}</mat-card-subtitle>
   </mat-card-header>
-
+  <img mat-card-image src="assets/wind-farm-img.jpg" [alt]="windFarm.name">
   <mat-card-content>
     <p>
-      Content
+      Active hours: {{ windFarm.activeHoursStart }}
     </p>
   </mat-card-content>
+
+  <mat-card-actions>
+    <div fxFlex="100%" fxLayoutAlign="center center">
+      <form name="workCapacity" [formGroup]="workCapacity" class="ml-8">
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'Work Capacity' }} </mat-label>
+          <mat-select formControlName="totalCapacity">
+            <mat-option *ngFor="let item of totalCapacity" [value]="item">
+              {{ item }}%
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+
+      <div fxFlex fxLayoutAlign="center start">
+        <button mat-raised-button color="accent">Save</button>
+      </div>
+
+    </div>
+  </mat-card-actions>
+
 </mat-card>

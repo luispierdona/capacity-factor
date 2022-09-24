@@ -5,6 +5,6 @@
   </div>
 
   <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="25%" *ngFor="let item of windFarms; index as i">
-    <app-wind-farm-card></app-wind-farm-card>
+    <app-wind-farm-card [windFarm]="item"></app-wind-farm-card>
   </div>
 </div>
