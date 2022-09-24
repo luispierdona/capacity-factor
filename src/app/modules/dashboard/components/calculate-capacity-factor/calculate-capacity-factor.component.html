@@ -1,10 +1,9 @@
 <mat-card class="mt-16">
   <mat-card-title>Calculate Capacity Factor</mat-card-title>
-
   <mat-card-content>
     <!-- Form with a select and a date range -->
-    <form [formGroup]="capacityFactorForm" class="mt-16">
-      <mat-form-field appearance="outline">
+    <form [formGroup]="capacityFactorForm">
+      <mat-form-field appearance="outline" class="mr-8" fxFlex>
         <mat-label> {{ 'Wind Farm' }} </mat-label>
         <mat-select formControlName="windFarm" multiple>
           <mat-option *ngFor="let item of windFarms" [value]="item">
@@ -13,7 +12,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="ml-8">
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [formGroup]="capacityFactorForm" [rangePicker]="picker">
           <input matStartDate formControlName="start" placeholder="Start date">
@@ -23,8 +22,9 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
-
-      <button mat-raised-button color="primary" [disabled]="!capacityFactorForm.valid" (click)="calculateCapacityFactor()">Calculate</button>
     </form>
   </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" [disabled]="!capacityFactorForm.valid" (click)="calculateCapacityFactor()">Calculate</button>
+  </mat-card-actions>
 </mat-card>

@@ -12,7 +12,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   private _unsubscribeAll: Subject<any>;
 
-  gridColumns = 4;
   windFarms: WindFarm[] = [];
 
   constructor(
