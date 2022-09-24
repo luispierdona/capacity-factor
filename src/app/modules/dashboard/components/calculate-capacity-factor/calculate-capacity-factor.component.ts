@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
 import { MeterReadings, WindFarm } from '../../models/windFarm.model';
 import { DashboardService } from '../../services/dashboard.service';
+import { AddWindFarmOverlayComponent } from '../add-wind-farm-overlay/add-wind-farm-overlay.component';
 import { CapacityFactorOverlayComponent } from '../capacity-factor-overlay/capacity-factor-overlay.component';
 
 @Component({
@@ -64,6 +65,12 @@ export class CalculateCapacityFactorComponent implements OnInit, OnDestroy {
     this.dialog.open(CapacityFactorOverlayComponent, {
       width: '900px',
       data: capacityFactor,
+    });
+  }
+
+  addWindFarm() {
+    this.dialog.open(AddWindFarmOverlayComponent, {
+      width: '900px'
     });
   }
 

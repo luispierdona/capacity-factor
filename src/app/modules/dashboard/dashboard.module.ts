@@ -23,6 +23,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AddWindFarmOverlayComponent } from './components/add-wind-farm-overlay/add-wind-farm-overlay.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 const routes: Routes = [
   {
@@ -50,12 +52,14 @@ const routes: Routes = [
     MatDialogModule,
     MatTableModule,
     MatProgressBarModule,
+    MatToolbarModule
   ],
   declarations: [
     DashboardComponent,
     WindFarmCardComponent,
     CalculateCapacityFactorComponent,
-    CapacityFactorOverlayComponent
+    CapacityFactorOverlayComponent,
+    AddWindFarmOverlayComponent,
   ],
   exports: [],
   providers: [DashboardService, MatDatepickerModule],

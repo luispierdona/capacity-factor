@@ -24,7 +24,7 @@ import { ToolbarComponent } from './modules/toolbar/toolbar.component';
     DashboardPageModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

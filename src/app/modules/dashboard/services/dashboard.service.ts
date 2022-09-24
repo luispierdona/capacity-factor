@@ -53,6 +53,19 @@ export class DashboardService {
       );
   }
 
+  addWindFarm(windFarm: WindFarm) {
+    const index = this.data.findIndex(item => item.id === windFarm.id);
+    if (index === -1) {
+      this.data.unshift(windFarm);
+      this.emitDataChange();
+      this.openSnackBar('Wind Farm added successfully', 'Close',
+        { duration: 2000, panelClass: ['mat-toolbar', 'mat-primary'] });
+    } else {
+      this.openSnackBar('Wind Farm already exists', 'Close',
+        { duration: 2000, panelClass: ['mat-toolbar', 'mat-warn'] });
+    }
+  }
+
   editWindFarm(windFarm: WindFarm) {
     const index = this.data.findIndex(item => item.id === windFarm.id);
     if (index !== -1) {
@@ -60,6 +73,9 @@ export class DashboardService {
       this.emitDataChange();
       this.openSnackBar('Wind Farm edited successfully', 'Close',
         { duration: 2000, panelClass: ['mat-toolbar', 'mat-primary'] });
+    } else {
+      this.openSnackBar('Wind Farm not found', 'Close',
+        { duration: 2000, panelClass: ['mat-toolbar', 'mat-warn'] });
     }
   }
 

@@ -22,7 +22,6 @@ export class CapacityFactorOverlayComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data);
-
   }
 
   applyFilter(event: Event) {
