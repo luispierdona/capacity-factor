@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WindFarm } from '../../models/windFarm.model';
 import { DashboardService } from '../../services/dashboard.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subject, takeUntil } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   private _unsubscribeAll: Subject<any>;
 

@@ -5,8 +5,7 @@
     "activeHoursStart": 0,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 0,
-    "meterReadings": 100
+    "workCapacity": 0
   },
   {
     "id": 2,
@@ -14,8 +13,7 @@
     "activeHoursStart": 2,
     "activeHoursEnd": 4,
     "totalCapacity": 100,
-    "workCapacity": 80,
-    "meterReadings": 100
+    "workCapacity": 80
   },
   {
     "id": 3,
@@ -23,8 +21,7 @@
     "activeHoursStart": 7,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 100,
-    "meterReadings": 100
+    "workCapacity": 100
   },
   {
     "id": 4,
@@ -32,8 +29,7 @@
     "activeHoursStart": 15,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 100,
-    "meterReadings": 100
+    "workCapacity": 100
   },
   {
     "id": 5,
@@ -41,8 +37,7 @@
     "activeHoursStart": 11,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 100,
-    "meterReadings": 100
+    "workCapacity": 100
   },
   {
     "id": 6,
@@ -50,8 +45,7 @@
     "activeHoursStart": 6,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 100,
-    "meterReadings": 100
+    "workCapacity": 100
   },
   {
     "id": 7,
@@ -59,8 +53,7 @@
     "activeHoursStart": 7,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 100,
-    "meterReadings": 100
+    "workCapacity": 100
   },
   {
     "id": 8,
@@ -68,8 +61,7 @@
     "activeHoursStart": 23,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 100,
-    "meterReadings": 100
+    "workCapacity": 100
   },
   {
     "id": 9,
@@ -77,8 +69,7 @@
     "activeHoursStart": 22,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 100,
-    "meterReadings": 100
+    "workCapacity": 100
   },
   {
     "id": 10,
@@ -86,7 +77,6 @@
     "activeHoursStart": 4,
     "activeHoursEnd": 23,
     "totalCapacity": 100,
-    "workCapacity": 100,
-    "meterReadings": 100
+    "workCapacity": 100
   }
 ]

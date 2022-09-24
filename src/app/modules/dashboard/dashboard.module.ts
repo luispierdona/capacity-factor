@@ -17,6 +17,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const routes: Routes = [
   {
@@ -39,6 +41,8 @@ const routes: Routes = [
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [
     DashboardComponent,
@@ -46,6 +50,6 @@ const routes: Routes = [
     CalculateCapacityFactorComponent
   ],
   exports: [],
-  providers: [DashboardService],
+  providers: [DashboardService, MatDatepickerModule],
 })
 export class DashboardPageModule {}
