@@ -1,0 +1,44 @@
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="capacityFactor">
+    <th mat-header-cell *matHeaderCellDef> <b class="whiteFont">{{ 'Capacity Factor' }}</b> </th>
+    <td mat-cell *matCellDef="let element"> {{element.capacityFactor}} MW </td>
+  </ng-container>
+
+  <ng-container matColumnDef="windFarmName">
+    <th mat-header-cell *matHeaderCellDef> <b class="whiteFont">{{ 'Wind Farm' }}</b></th>
+    <td mat-cell *matCellDef="let element"> {{element?.windFarm?.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="activeHours">
+    <th mat-header-cell *matHeaderCellDef> <b class="whiteFont">{{ 'Active Hours' }}</b> </th>
+    <td mat-cell *matCellDef="let element"> {{element?.windFarm?.activeHoursStart}} -
+      {{element?.windFarm?.activeHoursEnd}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="workCapacity">
+    <th mat-header-cell *matHeaderCellDef> <b class="whiteFont">{{ 'Work Capacity' }}</b> </th>
+    <td mat-cell *matCellDef="let element">
+      {{element?.windFarm?.workCapacity}}%
+      <mat-progress-bar mode="determinate" [value]="element?.windFarm?.workCapacity"></mat-progress-bar>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="totalCapacity">
+    <th mat-header-cell *matHeaderCellDef> <b class="whiteFont">{{ 'Total Capacity' }}</b> </th>
+    <td mat-cell *matCellDef="let element"> {{element?.windFarm?.totalCapacity}} MWh </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns" class="tableHeaderCustom"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</table>

@@ -1,0 +1,28 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$primary: mat-palette($mat-deep-purple-palette);
+$accent:  mat-palette($mat-yellow);
+$warn:    mat-palette($mat-red);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.tableHeaderCustom {
+  background-color: mat-color($primary);
+}
+
+.whiteFont {
+  color: white;
+}

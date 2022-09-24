@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WindFarmCardComponent } from './components/wind-farm-card/wind-farm-card.component';
 import { CalculateCapacityFactorComponent } from './components/calculate-capacity-factor/calculate-capacity-factor.component';
+import { CapacityFactorOverlayComponent } from './components/capacity-factor-overlay/capacity-factor-overlay.component';
 
 import { DashboardService } from './services/dashboard.service';
 
@@ -19,6 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const routes: Routes = [
   {
@@ -42,12 +46,16 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule,
+    MatTableModule,
+    MatProgressBarModule
   ],
   declarations: [
     DashboardComponent,
     WindFarmCardComponent,
-    CalculateCapacityFactorComponent
+    CalculateCapacityFactorComponent,
+    CapacityFactorOverlayComponent
   ],
   exports: [],
   providers: [DashboardService, MatDatepickerModule],

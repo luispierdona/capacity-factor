@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
-import { meterReadings, WindFarm } from '../../models/windFarm.model';
+import { MeterReadings, WindFarm } from '../../models/windFarm.model';
 import { DashboardService } from '../../services/dashboard.service';
+import { CapacityFactorOverlayComponent } from '../capacity-factor-overlay/capacity-factor-overlay.component';
 
 @Component({
   selector: 'app-calculate-capacity-factor',
@@ -19,6 +21,7 @@ export class CalculateCapacityFactorComponent implements OnInit, OnDestroy {
   constructor(
     private _formBuilder: FormBuilder,
     private dashboardService: DashboardService,
+    public dialog: MatDialog,
   ) {
     this._unsubscribeAll = new Subject();
 
@@ -34,8 +37,7 @@ export class CalculateCapacityFactorComponent implements OnInit, OnDestroy {
 
   */
   calculateCapacityFactor() {
-    console.log(this.capacityFactorForm.value);
-    const capacityFactor: meterReadings[] = [];
+    const capacityFactor: MeterReadings[] = [];
 
     // Days to calculate
     const startDate = new Date(this.capacityFactorForm.get('start')?.value);
@@ -55,7 +57,14 @@ export class CalculateCapacityFactorComponent implements OnInit, OnDestroy {
       }
     });
 
-    console.log(capacityFactor);
+    this.openCapacityFactorOverlay(capacityFactor);
+  }
+
+  openCapacityFactorOverlay(capacityFactor: MeterReadings[]) {
+    this.dialog.open(CapacityFactorOverlayComponent, {
+      width: '900px',
+      data: capacityFactor,
+    });
   }
 
   ngOnInit(): void {

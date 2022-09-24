@@ -12,7 +12,7 @@ export interface WindFarm extends IObjectKeys {
   workCapacity?: number;
 }
 
-export interface meterReadings {
+export interface MeterReadings {
   capacityFactor: number;
   windFarm: WindFarm;
 }
