@@ -49,7 +49,7 @@ const routes: Routes = [
     MatNativeDateModule,
     MatDialogModule,
     MatTableModule,
-    MatProgressBarModule
+    MatProgressBarModule,
   ],
   declarations: [
     DashboardComponent,
