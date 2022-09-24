@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WindFarm } from '../../models/windFarm.model';
+import { DashboardService } from '../../services/dashboard.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,68 +11,32 @@ import { WindFarm } from '../../models/windFarm.model';
 export class DashboardComponent implements OnInit {
 
   gridColumns = 4;
-  windFarms: WindFarm[] = [
-    {
-      id: '1',
-      name: 'Wind Farm 1',
-      activeHoursStart: new Date('2020-01-01T00:00:00'),
-      activeHoursEnd: new Date('2020-01-01T23:59:59'),
-      totalCapacity: 100,
-      meterReadings: 100
-    },
-    {
-      id: '2',
-      name: 'Wind Farm 2',
-      activeHoursStart: new Date('2020-01-01T00:00:00'),
-      activeHoursEnd: new Date('2020-01-01T23:59:59'),
-      totalCapacity: 100,
-      meterReadings: 100
-    },
-    {
-      id: '2',
-      name: 'Wind Farm 2',
-      activeHoursStart: new Date('2020-01-01T00:00:00'),
-      activeHoursEnd: new Date('2020-01-01T23:59:59'),
-      totalCapacity: 100,
-      meterReadings: 100
-    },
-    {
-      id: '2',
-      name: 'Wind Farm 2',
-      activeHoursStart: new Date('2020-01-01T00:00:00'),
-      activeHoursEnd: new Date('2020-01-01T23:59:59'),
-      totalCapacity: 100,
-      meterReadings: 100
-    },
-    {
-      id: '2',
-      name: 'Wind Farm 2',
-      activeHoursStart: new Date('2020-01-01T00:00:00'),
-      activeHoursEnd: new Date('2020-01-01T23:59:59'),
-      totalCapacity: 100,
-      meterReadings: 100
-    },
-    {
-      id: '2',
-      name: 'Wind Farm 2',
-      activeHoursStart: new Date('2020-01-01T00:00:00'),
-      activeHoursEnd: new Date('2020-01-01T23:59:59'),
-      totalCapacity: 100,
-      meterReadings: 100
-    },
-    {
-      id: '2',
-      name: 'Wind Farm 2',
-      activeHoursStart: new Date('2020-01-01T00:00:00'),
-      activeHoursEnd: new Date('2020-01-01T23:59:59'),
-      totalCapacity: 100,
-      meterReadings: 100
-    }
-  ];
+  windFarms: WindFarm[] = [];
 
-  constructor() { }
+  constructor(
+    private dashboardService: DashboardService,
+    private _snackBar: MatSnackBar,
+  ) { }
 
   ngOnInit(): void {
+    this.getWindFarms();
   }
 
+  getWindFarms() {
+    this.dashboardService.loadWindFarms().subscribe({
+      next: (windFarms: WindFarm[]) => {
+        this.windFarms = windFarms;
+      },
+      error: (err) => {
+        this.openSnackBar(err?.message, 'Close',
+          { duration: 2000, panelClass: ['mat-toolbar', 'mat-warn'] });
+      },
+      complete: () => this.openSnackBar('Wind Farms loaded successfully', 'Close',
+        { duration: 2000, panelClass: ['mat-toolbar', 'mat-primary'] })
+    });
+  }
+
+  openSnackBar(message: string, action: string, config: MatSnackBarConfig) {
+    this._snackBar.open(message, action, config);
+  }
 }

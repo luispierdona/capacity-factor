@@ -5,11 +5,13 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WindFarmCardComponent } from './components/wind-farm-card/wind-farm-card.component';
+import { CalculateCapacityFactorComponent } from './components/calculate-capacity-factor/calculate-capacity-factor.component';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { CalculateCapacityFactorComponent } from './components/calculate-capacity-factor/calculate-capacity-factor.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DashboardService } from './services/dashboard.service';
 
 const routes: Routes = [
   {
@@ -26,6 +28,7 @@ const routes: Routes = [
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
 
   ],
   declarations: [
@@ -34,6 +37,6 @@ const routes: Routes = [
     CalculateCapacityFactorComponent
   ],
   exports: [],
-  providers: [],
+  providers: [DashboardService],
 })
 export class DashboardPageModule {}
