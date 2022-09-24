@@ -6,7 +6,14 @@
   <img mat-card-image src="assets/wind-farm-img.jpg" [alt]="windFarm.name">
   <mat-card-content>
     <p>
-      Active hours: {{ windFarm.activeHoursStart }}
+      <b>Active hours: </b>
+      {{ windFarm.activeHoursStart }}
+      {{ ' - ' }}
+      {{ windFarm.activeHoursEnd }}
+    </p>
+    <p>
+      <b>Power: </b>
+      {{ windFarm.totalCapacity }}(MWh)
     </p>
   </mat-card-content>
 
@@ -15,8 +22,8 @@
       <form name="workCapacity" [formGroup]="workCapacity" class="ml-8">
         <mat-form-field appearance="outline">
           <mat-label> {{ 'Work Capacity' }} </mat-label>
-          <mat-select formControlName="totalCapacity">
-            <mat-option *ngFor="let item of totalCapacity" [value]="item">
+          <mat-select formControlName="workCapacity">
+            <mat-option *ngFor="let item of workCapacityNumbers" [value]="item">
               {{ item }}%
             </mat-option>
           </mat-select>
@@ -24,7 +31,7 @@
       </form>
 
       <div fxFlex fxLayoutAlign="center start">
-        <button mat-raised-button color="accent">Save</button>
+        <button mat-raised-button color="primary" [disabled]="!workCapacity.touched" (click)="editWindFarm()">Save</button>
       </div>
 
     </div>

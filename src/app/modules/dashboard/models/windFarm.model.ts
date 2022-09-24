@@ -4,11 +4,12 @@ interface IObjectKeys {
 
 
 export interface WindFarm extends IObjectKeys {
-  id?: string;
+  id?: number;
   name?: string;
-  activeHoursStart?: Date;
-  activeHoursEnd?: Date;
+  activeHoursStart?: number;
+  activeHoursEnd?: number;
   totalCapacity?: number;
+  workCapacity?: number;
   meterReadings?: number;
 
 }

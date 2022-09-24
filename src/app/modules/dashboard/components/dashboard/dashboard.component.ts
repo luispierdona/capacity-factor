@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WindFarm } from '../../models/windFarm.model';
 import { DashboardService } from '../../services/dashboard.service';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,33 +10,30 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 })
 export class DashboardComponent implements OnInit {
 
+  private _unsubscribeAll: Subject<any>;
+
   gridColumns = 4;
   windFarms: WindFarm[] = [];
 
   constructor(
     private dashboardService: DashboardService,
-    private _snackBar: MatSnackBar,
-  ) { }
+  ) {
+    this._unsubscribeAll = new Subject();
+  }
 
   ngOnInit(): void {
-    this.getWindFarms();
+
+    this.dashboardService.data$
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe(data => {
+        this.windFarms = data;
+      });
+    this.dashboardService.list().subscribe();
   }
 
-  getWindFarms() {
-    this.dashboardService.loadWindFarms().subscribe({
-      next: (windFarms: WindFarm[]) => {
-        this.windFarms = windFarms;
-      },
-      error: (err) => {
-        this.openSnackBar(err?.message, 'Close',
-          { duration: 2000, panelClass: ['mat-toolbar', 'mat-warn'] });
-      },
-      complete: () => this.openSnackBar('Wind Farms loaded successfully', 'Close',
-        { duration: 2000, panelClass: ['mat-toolbar', 'mat-primary'] })
-    });
-  }
 
-  openSnackBar(message: string, action: string, config: MatSnackBarConfig) {
-    this._snackBar.open(message, action, config);
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
   }
 }

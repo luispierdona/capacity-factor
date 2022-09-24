@@ -2,81 +2,91 @@
   {
     "id": 1,
     "name": "Wind Farm 1",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 0,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 0,
     "meterReadings": 100
   },
   {
     "id": 2,
     "name": "Wind Farm 2",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 2,
+    "activeHoursEnd": 4,
     "totalCapacity": 100,
+    "workCapacity": 80,
     "meterReadings": 100
   },
   {
     "id": 3,
     "name": "Wind Farm 3",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 7,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 100,
     "meterReadings": 100
   },
   {
     "id": 4,
     "name": "Wind Farm 4",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 15,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 100,
     "meterReadings": 100
   },
   {
     "id": 5,
     "name": "Wind Farm 5",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 11,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 100,
     "meterReadings": 100
   },
   {
     "id": 6,
     "name": "Wind Farm 6",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 6,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 100,
     "meterReadings": 100
   },
   {
     "id": 7,
     "name": "Wind Farm 7",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 7,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 100,
     "meterReadings": 100
   },
   {
     "id": 8,
     "name": "Wind Farm 8",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 23,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 100,
     "meterReadings": 100
   },
   {
     "id": 9,
     "name": "Wind Farm 9",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 22,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 100,
     "meterReadings": 100
   },
   {
     "id": 10,
     "name": "Wind Farm 10",
-    "activeHoursStart": "2020-01-01T00:00:00",
-    "activeHoursEnd": "2020-01-01T23:59:59",
+    "activeHoursStart": 4,
+    "activeHoursEnd": 23,
     "totalCapacity": 100,
+    "workCapacity": 100,
     "meterReadings": 100
   }
 ]
