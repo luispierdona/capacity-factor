@@ -26,7 +26,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AddWindFarmOverlayComponent } from './components/add-wind-farm-overlay/add-wind-farm-overlay.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -41,7 +40,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FlexLayoutModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,

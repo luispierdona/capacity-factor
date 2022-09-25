@@ -41,4 +41,12 @@ describe('CalculateCapacityFactorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('shoud call addWindFarm method', () => {
+    const fixture = TestBed.createComponent(CalculateCapacityFactorComponent);
+    const app = fixture.debugElement.componentInstance;
+    app.addWindFarm();
+    expect(app.addWindFarm).toBeTruthy();
+  })
+
 });

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { WindFarm } from '../models/windFarm.model';
 import { catchError, map } from 'rxjs';
 import { Observable, Subject, throwError } from 'rxjs';
@@ -33,6 +33,10 @@ export class DashboardService {
   emitDataChange() {
     const data = _.cloneDeep(this.data);
     this.dataSubject.next(data);
+  }
+
+  dataListAsObservable() {
+    return this.dataSubject.asObservable();
   }
 
   list() {
