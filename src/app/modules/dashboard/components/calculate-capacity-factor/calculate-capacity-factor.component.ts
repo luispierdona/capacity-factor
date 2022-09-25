@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import * as _ from 'lodash';
 import { Subject, takeUntil } from 'rxjs';
 import { MeterReadings, WindFarm } from '../../models/windFarm.model';
 import { DashboardService } from '../../services/dashboard.service';
@@ -48,7 +49,7 @@ export class CalculateCapacityFactorComponent implements OnInit, OnDestroy {
     // Capacity will be equal to the totalCapacity at the workCapacity percentage
     const windFarms = this.capacityFactorForm.get('windFarm')?.value;
     windFarms.forEach((windFarm: WindFarm) => {
-      if (windFarm.totalCapacity && windFarm.workCapacity && windFarm.activeHoursStart && windFarm.activeHoursEnd) {
+      if (windFarm.totalCapacity && windFarm.workCapacity && !_.isUndefined(windFarm.activeHoursEnd) && !_.isUndefined(windFarm.activeHoursStart)) {
         const workingHours = windFarm.activeHoursEnd - windFarm.activeHoursStart;
         const capacityPerHour = windFarm.totalCapacity * (windFarm.workCapacity / 100);
         capacityFactor.push({
