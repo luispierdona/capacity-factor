@@ -20,11 +20,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AddWindFarmOverlayComponent } from './components/add-wind-farm-overlay/add-wind-farm-overlay.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -38,6 +40,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FlexLayoutModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -52,7 +56,7 @@ const routes: Routes = [
     MatDialogModule,
     MatTableModule,
     MatProgressBarModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   declarations: [
     DashboardComponent,
@@ -61,7 +65,14 @@ const routes: Routes = [
     CapacityFactorOverlayComponent,
     AddWindFarmOverlayComponent,
   ],
-  exports: [],
-  providers: [DashboardService, MatDatepickerModule],
+  exports: [AddWindFarmOverlayComponent],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    DashboardService,
+    MatDatepickerModule
+  ],
 })
-export class DashboardPageModule {}
+export class DashboardPageModule { }

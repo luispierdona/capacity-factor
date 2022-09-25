@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ToolbarComponent } from './modules/toolbar/toolbar.component';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,14 @@ import { ToolbarComponent } from './modules/toolbar/toolbar.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: MatDialogRef,
+    useValue: {}
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

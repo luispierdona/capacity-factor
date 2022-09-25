@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -8,6 +11,11 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatSnackBarModule
+      ],
       declarations: [ DashboardComponent ]
     })
     .compileComponents();

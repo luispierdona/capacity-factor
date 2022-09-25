@@ -1,4 +1,13 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CalculateCapacityFactorComponent } from './calculate-capacity-factor.component';
 
@@ -8,6 +17,18 @@ describe('CalculateCapacityFactorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatInputModule,
+        HttpClientModule,
+        MatSnackBarModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule
+      ],
       declarations: [ CalculateCapacityFactorComponent ]
     })
     .compileComponents();
